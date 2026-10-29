@@ -16,7 +16,7 @@ Modified files:
   preserving assembly version 3.7.0.0 and the original signing key.
 - `src/Cloudflare.NET.R2/Cloudflare.NET.R2.csproj`: fork package Cloudflare.Kit.R2 2.5.0.1,
   preserving assembly version 2.5.0.0 and the original signing key.
-- `Directory.Build.props`: .NET 8 target, fork repository URL, explicit packaging.
+- `Directory.Build.props`: .NET 8 target, fork repository URL/readme, explicit packaging.
 
 Fork packages use distinct IDs for publication on NuGet.org; assembly names,
 namespaces and signing identities remain unchanged for binary compatibility.

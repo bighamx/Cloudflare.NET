@@ -59,9 +59,9 @@
     <Company>Alos Engineering</Company>
     <Copyright>Copyright (c) $([System.DateTime]::Now.Year) Alos Engineering</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://alos.no/cfnet</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/bighamx/Cloudflare.NET/tree/kit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bighamx/Cloudflare.NET</RepositoryUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>FORK.md</PackageReadmeFile>
     
     <!-- Package generation settings -->
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
