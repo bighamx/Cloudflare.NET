@@ -1,8 +1,8 @@
 <Project>
 
   <PropertyGroup>
-    <!-- Multi-targeting: .NET 8 (LTS), .NET 9, .NET 10 -->
-    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <!-- Kit fork builds the .NET 8 baseline; newer runtimes can consume it. -->
+    <TargetFrameworks>net8.0</TargetFrameworks>
 
     <!-- Language & Nullability -->
     <LangVersion>latest</LangVersion>
@@ -60,11 +60,11 @@
     <Copyright>Copyright (c) $([System.DateTime]::Now.Year) Alos Engineering</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://alos.no/cfnet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Alos-no/Cloudflare.NET</RepositoryUrl>
+    <RepositoryUrl>https://github.com/bighamx/Cloudflare.NET</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     
     <!-- Package generation settings -->
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <IsPackable>true</IsPackable>
     
     <!-- 
@@ -80,5 +80,9 @@
     The explicit 8.0.0 reference was removed on 2026-09-19 because Microsoft.Build.Tasks.Git 8.0.0 carries
     advisory GHSA-23fw-v26w-5fgq (CVE-2026-62900) with no patched 8.x release, and NuGet audit fails the build.
   -->
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)FORK.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
 </Project>

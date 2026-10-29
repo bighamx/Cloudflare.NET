@@ -1,5 +1,6 @@
 namespace Cloudflare.NET.Dns.Models;
 
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Security.Firewall.Models;
 
@@ -76,7 +77,11 @@ public record DnsRecord(
 
   [property: JsonPropertyName("settings")]
   DnsRecordSettings? Settings = null
-);
+)
+{
+  [JsonExtensionData]
+  public Dictionary<string, JsonElement>? AdditionalProperties { get; init; }
+}
 
 
 /// <summary>
@@ -93,7 +98,19 @@ public record DnsRecordMeta(
 
   [property: JsonPropertyName("source")]
   string? Source = null
-);
+)
+{
+  /// <summary>Worker owning this DNS record, when supplied by Cloudflare.</summary>
+  [JsonPropertyName("origin_worker_id")]
+  public string? OriginWorkerId { get; init; }
+
+  /// <summary>Whether Cloudflare marks this record as read-only; missing is unknown.</summary>
+  [JsonPropertyName("read_only")]
+  public bool? ReadOnly { get; init; }
+
+  [JsonExtensionData]
+  public Dictionary<string, JsonElement>? AdditionalProperties { get; init; }
+}
 
 
 /// <summary>
