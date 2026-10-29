@@ -18,13 +18,14 @@ Modified files:
   preserving assembly version 2.5.0.0 and the original signing key.
 - `Directory.Build.props`: .NET 8 target, fork repository URL/readme, explicit packaging.
 
-Fork packages use distinct IDs for publication on NuGet.org; assembly names,
-namespaces and signing identities remain unchanged for binary compatibility.
-Do not reference the official Cloudflare.NET.Api or Cloudflare.NET.R2 packages
-alongside the fork packages, as they contain the same assembly identities.
-Both API and R2 are built from source to avoid mixing official
-package references with the fork project references. DNS regression tests are in
-the consuming Kit repository.
+Starting with Cloudflare.Kit 0.1.3, the consuming Kit package embeds the API/R2
+assemblies and XML documentation. API/R2 are no longer published as separate
+packages. Their project package IDs/versions above describe the historical 0.1.2
+split-package release; assembly names, versions, namespaces and signing identities
+remain unchanged for binary compatibility. Do not reference official
+Cloudflare.NET.Api/R2 or historical Cloudflare.Kit.Api/R2 packages alongside the
+single Kit package, as they contain the same assembly identities. Both API and R2
+are built from source. DNS regression and packaging checks are in the Kit repository.
 
 To update, fetch https://github.com/Alos-no/Cloudflare.NET and merge the desired
 upstream revision into `kit`. Review compatibility, update this baseline and the
